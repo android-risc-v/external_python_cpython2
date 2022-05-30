@@ -103,6 +103,9 @@ cc_defaults {
         android_x86_64: {
             local_include_dirs: ["android_x86_64/pyconfig"],
         },
+        android_riscv64: {
+            local_include_dirs: ["android_riscv64/pyconfig"],
+        },
         // Regenerate include dirs with android_regen.sh
         darwin_x86_64: {
             local_include_dirs: ["darwin_x86_64/pyconfig"],
@@ -964,6 +967,18 @@ cc_library_static {
             srcs: [
                 "Modules/_ctypes/libffi/src/aarch64/ffi.c",
                 "Modules/_ctypes/libffi/src/aarch64/sysv.S",
+            ],
+        },
+        riscv64: {
+            conlyflags: ["-std=gnu11",],
+            local_include_dirs: [
+                "android_riscv64/libffi",
+                "Modules/_ctypes/libffi/include",
+                "Modules/_ctypes/libffi/src/riscv",
+            ],
+            srcs: [
+                "Modules/_ctypes/libffi/src/riscv/ffi.c",
+                "Modules/_ctypes/libffi/src/riscv/sysv.S",
             ],
         },
     },

@@ -8,6 +8,7 @@ SUBDIRS = include testsuite man
 
 EXTRA_DIST = LICENSE ChangeLog.v1 ChangeLog.libgcj			\
 	 src/aarch64/ffi.c src/aarch64/ffitarget.h src/aarch64/sysv.S	\
+	 src/riscv/ffi.c src/riscv/ffitarget.h src/riscv/sysv.S   \
 	 src/alpha/ffi.c src/alpha/osf.S			\
 	 src/alpha/ffitarget.h src/arc/ffi.c src/arc/arcompact.S	\
 	 src/arc/ffitarget.h src/arm/ffi.c src/arm/sysv.S		\
@@ -183,6 +184,9 @@ nodist_libffi_la_SOURCES += src/powerpc/ffi.c src/powerpc/ffi_sysv.c src/powerpc
 endif
 if AARCH64
 nodist_libffi_la_SOURCES += src/aarch64/sysv.S src/aarch64/ffi.c
+endif
+if RISCV
+nodist_libffi_la_SOURCES += src/riscv/sysv.S src/riscv/ffi.c
 endif
 if ARC
 nodist_libffi_la_SOURCES += src/arc/arcompact.S src/arc/ffi.c

@@ -680,6 +680,8 @@ ARC_FALSE
 ARC_TRUE
 AARCH64_FALSE
 AARCH64_TRUE
+RISCV_FALSE
+RISCV_TRUE
 POWERPC_FREEBSD_FALSE
 POWERPC_FREEBSD_TRUE
 POWERPC_DARWIN_FALSE
@@ -17156,6 +17158,9 @@ case "$host" in
   aarch64*-*-*)
 	TARGET=AARCH64; TARGETDIR=aarch64
 	;;
+  riscv64*)
+        TARGET=RISCV; TARGETDIR=riscv
+        ;;
 
   alpha*-*-*)
 	TARGET=ALPHA; TARGETDIR=alpha;
@@ -17567,6 +17572,14 @@ fi
 else
   AARCH64_TRUE='#'
   AARCH64_FALSE=
+fi
+
+ if test x$TARGET = xRISCV; then
+  RISCV_TRUE=
+  RISCV_FALSE='#'
+else
+  RISCV_TRUE='#'
+  RISCV_FALSE=
 fi
 
  if test x$TARGET = xARC; then
@@ -19067,6 +19080,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${AARCH64_TRUE}" && test -z "${AARCH64_FALSE}"; then
   as_fn_error $? "conditional \"AARCH64\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${RISCV_TRUE}" && test -z "${RISCV_FALSE}"; then
+  as_fn_error $? "conditional \"RISCV\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ARC_TRUE}" && test -z "${ARC_FALSE}"; then
